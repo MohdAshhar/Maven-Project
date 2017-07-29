@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Landing Page</title>
+</head>
+
+<script type="text/javascript">
+alert("hello");
+
+function clickSubmit()
+{
+	//document.getElementById("submitPage").click();
+	document.getElementById("submitPage").value ="New Submit";
+	document.getElementById("submitPage").hidden = false;
+}
+ 
+
+</script>
+
+<body onload = "clickSubmit()">
+<form action="LoginPage.jsp">
+<input id = "submitPage" type = "submit"  value = "redirect" hidden />
+</form>
+
+</body>
+</html>
