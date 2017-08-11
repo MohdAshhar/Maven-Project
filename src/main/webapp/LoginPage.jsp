@@ -7,26 +7,40 @@
 <title>LOGIN</title>
 </head>
 <body id = "RegisterPage">
-	<form id = "registration">
-		<div>
-        	<label for="Name">NAME : </label><input type="text" id = "Name">
-		</div>
-        <div>
-        	<label for="Email">EMAIL : </label><input type="email" id = "Email">
-		</div>
-        <div>
-        	<label for="UName">USERNAME : </label><input type="text" id = "UName">
-		</div>
-        <div>
-        	<label for="Phone">PHONE : </label><input type="tel" id = "Phone">
-		</div>
-        <div>
-        	<label for="Paswrd">PASSWORD</label><input type="text" id = "Paswrd">
-		</div>
-        <div>
-        <label for="ConPwd">CONFIRM PASSWORD</label><input type="text" id = "ConPwd">
-		<input type="button" Value= "Submit" onclick ="return myFunction()" >
-        </div>
+    <h1>Registration Form</h1>
+    <form id = "registration" action="Index.html" method="post">
+        <table cellpadding="3pt">
+            <tr>
+                <td>User Name :</td>
+                <td><input type="text" name="userName" size="30" /></td>
+            </tr>
+            <tr>
+                <td>Full Name :</td>
+                <td><input type="text" name="email" size="30" /></td>
+            </tr>
+
+            <tr>
+                <td>Email :</td>
+                <td><input type="text" name="phone" size="30" /></td>
+            </tr>
+            <tr>
+                <td>Phone :</td>
+                <td><input type="text" name="city" size="30" /></td>
+            </tr>
+
+            <tr>
+                <td>Password :</td>
+                <td><input type="password" name="password1" id="pass1" size="30" /></td>
+            </tr>
+ 
+            <tr>
+                <td>Confirm Password :</td>
+                <td><input type="password" name="password2" id ="pass2" size="30" onChange="checkPasswordMatch();" /></td>
+            </tr>
+            
+        </table>
+        <p />
+        <input type="submit" value="Register" onclick ="return myFunction()" />
 	</form>
     
 </body>
@@ -34,19 +48,26 @@
 <script type="text/javascript">
 
 function myFunction(){
-alert("entered");
 
 var elements = document.getElementById("registration").elements;
 
 for (var i = 0, element; element = elements[i++];) {
     if (element.value.trim().length<1)
     {
-        alert("fill every field");
+        alert("empty field not allowed");
         return false;
         
     }
 }
 return true;
+}
+
+function checkPasswordMatch() {
+    var password = document.getElementById("pass1").value;
+    var confirmPassword = document.getElementById("pass2").value;
+
+    if (password != confirmPassword)
+        alert("Different Passwords");
 }
 </script>
 </html>
